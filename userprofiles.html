@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a4a4d3;
+            color: #333;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 28px;
+        }
+
+        form {
+            background-color: rgb(217, 209, 209);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            max-width: 400px;
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+            color: #af934c;
+        }
+
+        input[type="text"], textarea, input[type="file"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #97c1c3;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        input[type="submit"] {
+            background-color: #a87ba6;
+            color: white;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #518d9f;
+        }
+    </style>
+    <script>
+        function validateProfileUpdate() {
+            var bio = document.getElementById("bio").value;
+            if (bio.length > 500) {
+                alert("Bio must not exceed 500 characters.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>User Profile</h2>
+    <form onsubmit="return validateProfileUpdate()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="bio">Bio:</label><br>
+        <textarea id="bio" name="bio" maxlength="500" required></textarea><br><br>
+
+        <label for="profilePicture">Profile Picture:</label>
+        <input type="file" id="profilePicture" name="profilePicture" accept="image/*" required><br><br>
+
+        <input type="submit" value="Update Profile">
+    </form>
+</body>
+</html>
